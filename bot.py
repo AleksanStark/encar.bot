@@ -1,5 +1,6 @@
 import asyncio
 import logging
+import os
 from dataclasses import dataclass
 from typing import Union
 from aiogram import Bot, Dispatcher, F, Router
@@ -12,10 +13,12 @@ from aiogram.types import InlineKeyboardButton, Message, CallbackQuery
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 from encar import CarapisClient
 from datetime import datetime, timezone
+from dotenv import load_dotenv
 import requests
 
+load_dotenv()
 
-TOKEN = "8070729025:AAHxsH-03byNNtRg7L_kIbwcWq-xfSWQrfs"  
+TOKEN = os.getenv("TOKEN")
 
 
 @dataclass
