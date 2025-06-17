@@ -15,8 +15,8 @@ from datetime import datetime, timezone
 import requests
 
 
-TOKEN = "7776339243:AAH5rZa7pvbZ3O0H9Zms3-xrCLvIZoCjuu4"  
-API_KEY = "a7523744-4651-4510-ba88-0087911d1ec2"
+TOKEN = "8070729025:AAHxsH-03byNNtRg7L_kIbwcWq-xfSWQrfs"  
+
 
 @dataclass
 class Car:
@@ -520,7 +520,7 @@ CARS = [
 async def repeat_car_request(callback: CallbackQuery, api_data: dict):
     while True:
         try:
-            response = requests.post("https://nodejs-production-5332.up.railway.app/send_car_info", json=api_data)
+            response = requests.post("https://encarparser-production.up.railway.app/send_car_info", json=api_data)
             response.raise_for_status()
             result = response.json()
             car_id = result.get("id", "")
@@ -764,7 +764,7 @@ class CarSelectionScene(Scene, state="car_selection"):
         print(api_data["fuel_type"])
         print(api_data["drive"])
         print(api_data["color"])
-        await callback.message.edit_text("🔍 Начинаем поиск автомобилей...")
+        await callback.message.edit_text("🔍 Начинаем поиск автомобилей... (для поиска других машин используйте команду /start)")
 
         asyncio.create_task(repeat_car_request(callback, api_data))
         
