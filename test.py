@@ -15,7 +15,7 @@ from datetime import datetime, timezone
 import requests
 
 
-TOKEN = "7776339243:AAH5rZa7pvbZ3O0H9Zms3-xrCLvIZoCjuu4"  
+
 API_KEY = "a7523744-4651-4510-ba88-0087911d1ec2"
 
 @dataclass
